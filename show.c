@@ -1,7 +1,3 @@
-
-#include <stdlib.h>
-#include <string.h>
-
 #include <stdlib.h>
 #include <string.h>
 
@@ -47,13 +43,33 @@ void setup_graphics() {
 
 void main(void)
 {
+  int a;
+  char snum[3];
+  char pad;
   setup_graphics();
   // draw message  
   vram_adr(NTADR_A(2,2));
-  vram_write("Show Monster", 12);
+  vram_write("0", 1);
   // enable rendering
   ppu_on_all();
   // infinite loop
   while(1) {
+    pad = pad_trigger(0);
+    if(pad & PAD_A){
+      	a++;
+      	itoa(a,snum,10);
+    	ppu_off();
+        vram_adr(NTADR_A(2,2));
+        vram_write(snum, 2);
+      	ppu_on_all();
+    }else if(pad & PAD_B){
+      	a--;
+      	itoa(a,snum,10);
+    	ppu_off();
+        vram_adr(NTADR_A(2,2));
+        vram_write(snum, 2);
+      	ppu_on_all();
+    }
   }
 }
+                        
