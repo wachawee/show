@@ -45,23 +45,19 @@ void main(void)
 {
   int a;
   int i,j;
-  int x,y;
+  int x,y,m,n;
   int num;
+  int posx[] = {2,7,12,17,22,27};
+  int posy[] = {2,7,12,17,22,27};
+  
   char snum[3];
   char pad;
   setup_graphics();
   // draw message  
-  x=2; y=2;
   num=0;
-  for(j=0;j<4;j++){
-  for(i=0;i<4;i++){
-      vram_adr(NTADR_A(x+i,y+j));
-      vram_put(num);
-      num = num +1;
-  }
-  }
-  
-  x=7; y=2;
+  for(m=0;m<6;m++)
+  for(n=0;n<5;n++){
+  x=posx[m]; y=posy[n];
   
   for(j=0;j<4;j++){
   for(i=0;i<4;i++){
@@ -70,46 +66,8 @@ void main(void)
       num = num +1;
   }
   }
-  
-  x=12; y=2;
-  
-  for(j=0;j<4;j++){
-  for(i=0;i<4;i++){
-      vram_adr(NTADR_A(x+i,y+j));
-      vram_put(num);
-      num = num +1;
-  }
   }
   
-  x=17; y=2;
-  
-  for(j=0;j<4;j++){
-  for(i=0;i<4;i++){
-      vram_adr(NTADR_A(x+i,y+j));
-      vram_put(num);
-      num = num +1;
-  }
-  }
-  
-  x=22; y=2;
-  
-  for(j=0;j<4;j++){
-  for(i=0;i<4;i++){
-      vram_adr(NTADR_A(x+i,y+j));
-      vram_put(num);
-      num = num +1;
-  }
-  }
-  
-  x=27; y=2;
-  
-  for(j=0;j<4;j++){
-  for(i=0;i<4;i++){
-      vram_adr(NTADR_A(x+i,y+j));
-      vram_put(num);
-      num = num +1;
-  }
-  }
   // enable rendering
   ppu_on_all();
   // infinite loop
