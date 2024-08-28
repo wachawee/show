@@ -44,21 +44,70 @@ void setup_graphics() {
 void main(void)
 {
   int a;
-  char snum[3];
-  char pad;
-  
   int i,j;
   int x,y;
   int num;
+  char snum[3];
+  char pad;
   setup_graphics();
-  // draw message
-  x=2;y=2;
+  // draw message  
+  x=2; y=2;
   num=0;
   for(j=0;j<4;j++){
   for(i=0;i<4;i++){
-  vram_adr(NTADR_A(x+i,y+j));
-  vram_put(num);
-  num = num +1;
+      vram_adr(NTADR_A(x+i,y+j));
+      vram_put(num);
+      num = num +1;
+  }
+  }
+  
+  x=7; y=2;
+  
+  for(j=0;j<4;j++){
+  for(i=0;i<4;i++){
+      vram_adr(NTADR_A(x+i,y+j));
+      vram_put(num);
+      num = num +1;
+  }
+  }
+  
+  x=12; y=2;
+  
+  for(j=0;j<4;j++){
+  for(i=0;i<4;i++){
+      vram_adr(NTADR_A(x+i,y+j));
+      vram_put(num);
+      num = num +1;
+  }
+  }
+  
+  x=17; y=2;
+  
+  for(j=0;j<4;j++){
+  for(i=0;i<4;i++){
+      vram_adr(NTADR_A(x+i,y+j));
+      vram_put(num);
+      num = num +1;
+  }
+  }
+  
+  x=22; y=2;
+  
+  for(j=0;j<4;j++){
+  for(i=0;i<4;i++){
+      vram_adr(NTADR_A(x+i,y+j));
+      vram_put(num);
+      num = num +1;
+  }
+  }
+  
+  x=27; y=2;
+  
+  for(j=0;j<4;j++){
+  for(i=0;i<4;i++){
+      vram_adr(NTADR_A(x+i,y+j));
+      vram_put(num);
+      num = num +1;
   }
   }
   // enable rendering
