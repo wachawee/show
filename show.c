@@ -8,7 +8,7 @@
 #include <nes.h>
 
 // link the pattern table into CHR ROM
-//#link "chr_generic.s"
+//#link "monster.s"
 
 // BCD arithmetic support
 #include "bcd.h"
@@ -46,10 +46,21 @@ void main(void)
   int a;
   char snum[3];
   char pad;
+  
+  int i,j;
+  int x,y;
+  int num;
   setup_graphics();
-  // draw message  
-  vram_adr(NTADR_A(2,2));
-  vram_write("0", 1);
+  // draw message
+  x=2;y=2;
+  num=0;
+  for(j=0;j<4;j++){
+  for(i=0;i<4;i++){
+  vram_adr(NTADR_A(x+i,y+j));
+  vram_put(num);
+  num = num +1;
+  }
+  }
   // enable rendering
   ppu_on_all();
   // infinite loop
